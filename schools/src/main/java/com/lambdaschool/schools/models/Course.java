@@ -12,6 +12,7 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Size;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -34,8 +35,9 @@ public class Course
     /**
      * Name (String) of this Course. Cannot be null and must be unique
      */
-    @Column(nullable = true,
+    @Column(nullable = false,
         unique = true)
+    @Size(min = 2, max = 50, message = "Course Name must be between 2-50")
     private String coursename;
 
     /**
